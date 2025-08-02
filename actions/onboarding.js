@@ -28,6 +28,9 @@ export async function setUserRole(formData) {
   }
 
   try {
+    console.log("🔥 formData role:", formData.get("role"));
+  console.log("🔥 userId:", userId);
+  console.log("🔥 user:", user);
     // For patient role - simple update
     if (role === "PATIENT") {
       await db.user.update({
@@ -73,6 +76,12 @@ export async function setUserRole(formData) {
       return { success: true, redirect: "/doctor/verification" };
     }
   } catch (error) {
+    console.error("🔥🔥 Server Action Error:", {
+      name: error.name,
+      message: error.message,
+      stack: error.stack,
+      error,
+    });
     console.error("Failed to set user role:", error);
     throw new Error(`Failed to update user profile: ${error.message}`);
   }
