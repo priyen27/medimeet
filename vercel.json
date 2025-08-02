@@ -1,8 +1,5 @@
 {
     "buildCommand": "npm run build",
-    "ignoreCommand": "false",
-    "env": {
-      "DATABASE_URL": "your_database_url"
-    }
+    "ignoreCommand": "false"
 }
   
